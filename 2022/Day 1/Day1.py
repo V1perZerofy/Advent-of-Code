@@ -1,5 +1,6 @@
 with open("input.txt") as file:
-    data = list(map(int, file.readlines()))   
+    data = list(map(int, file.readlines()))
+file.close()
 calories = 0
 inv = []
 for i in range(len(data)):
