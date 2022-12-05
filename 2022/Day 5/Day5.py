@@ -1,4 +1,4 @@
-with open("c:/Users/niels/OneDrive/Dokumente/GitHub/Advent-of-Code/2022/Day 5/input.txt") as file:
+with open("input.txt") as file:
     data = file.read().splitlines()
 this = []
 to = []
