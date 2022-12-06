@@ -2,34 +2,40 @@ with open("input.txt") as file:                 #Format must be line 1: A, B or 
     data = file.read().splitlines()    #Just replace space wit \n
 #print(data)
 def task1():
-    points = 0
-
+    punkte = 0
     for i in range(len(data)):
-        enemy, we = data[i].split(" ")
-        draw, win = 3, 6
-        enemy, we = enemy.replace("A", "1"), we.replace("X", "1")
-        enemy, we = enemy.replace("B", "2"), we.replace("Y", "2")
-        enemy, we = enemy.replace("C", "3"), we.replace("Z", "3")
-        enemy, we = int(enemy), int(we)
-        if enemy == we:
-            points += draw
-            points += we
-        elif we == 3 and enemy == 1:
-            points += we
-        elif we == 3 and enemy == 2:
-            points += win
-            points += we
-        elif we == 2 and enemy == 3:
-            points += we
-        elif we == 2 and enemy == 1:
-            points += win
-            points += we
-        elif we == 1 and enemy == 2:
-            points += we
-        elif we == 1 and enemy == 3:
-            points += win
-            points += we
-        print("Solution for task 1 is: "+str(points))
+        if data[i] != "":
+            if data[i] == "A\n":
+                if data[i + 1] == "X\n":
+                    punkte += 1
+                    punkte += 3
+                if data[i + 1] == "Y\n":
+                    punkte += 2
+                    punkte += 6
+                if data[i + 1] == "Z\n":
+                    punkte += 3
+                    punkte += 0
+            elif data[i] == "B\n":
+                if data[i + 1] == "X\n":
+                    punkte += 1
+                    punkte += 0
+                if data[i + 1] == "Y\n":
+                    punkte += 2
+                    punkte += 3
+                if data[i + 1] == "Z\n":
+                    punkte += 3
+                    punkte += 6
+            elif data[i] == "C\n":
+                if data[i + 1] == "X\n":
+                    punkte += 1
+                    punkte += 6
+                if data[i + 1] == "Y\n":
+                    punkte += 2
+                    punkte += 0
+                if data[i + 1] == "Z" or data[i + 1] == "Z\n":
+                    punkte += 3
+                    punkte += 3
+    print("Solution for task 1 is: "+str(punkte))
                 
 def task2():
     punkte = 0
